@@ -6,6 +6,9 @@ jobs:
 
   steps:
   - template: build/templates/gitversion.yml
+  
+  - powershell: .\build\Install-WindowsSdkISO.ps1 18362
+    displayName: Windows SDK Install
 
   - task: MSBuild@1
     inputs:
