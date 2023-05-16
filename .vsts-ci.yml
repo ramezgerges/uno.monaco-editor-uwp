@@ -2,10 +2,13 @@ jobs:
 - job: Windows
 
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-2022'
 
   steps:
   - template: build/templates/gitversion.yml
+  
+  - powershell: .\build\Install-WindowsSdkISO.ps1 18362
+    displayName: Windows SDK Install
 
   - task: MSBuild@1
     inputs:

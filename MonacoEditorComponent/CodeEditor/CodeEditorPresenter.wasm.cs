@@ -277,8 +277,8 @@ namespace Monaco
             var modifingSelection = false; // Supress updates to selection when making edits.
 			window.modifyingSelection=false;
 
-			require.config({{ paths: {{ 'vs': '{UNO_BOOTSTRAP_WEBAPP_BASE_PATH}{UNO_BOOTSTRAP_APP_BASE}/monaco-editor/min/vs' }} }});
-			require(['vs/editor/editor.main'], function () {{
+			globalThis.require.config({{ paths: {{ 'vs': '{UNO_BOOTSTRAP_WEBAPP_BASE_PATH}{UNO_BOOTSTRAP_APP_BASE}/monaco-editor/min/vs' }} }});
+			globalThis.require(['vs/editor/editor.main'], function () {{
 
 
 				Debug.log(""Grabbing Monaco Options"");
