@@ -31,42 +31,42 @@ namespace Monaco
 			//Background = new SolidColorBrush(Colors.Red);
 			_handle = JSObjectHandle.Create(this);
 
-			RaiseDOMContentLoaded();
+            RaiseDOMContentLoaded();
 
 
-			//WebAssemblyRuntime.InvokeJSWithInterop($@"
-			//	console.log(""///////////////////////////////// subscribing to DOMContentLoaded - "" + {HtmlId});
+            //WebAssemblyRuntime.InvokeJSWithInterop($@"
+            //	console.log(""///////////////////////////////// subscribing to DOMContentLoaded - "" + {HtmlId});
 
-			//	var frame = Uno.UI.WindowManager.current.getView({HtmlId});
-				
-			//	console.log(""Got view"");
+            //	var frame = Uno.UI.WindowManager.current.getView({HtmlId});
 
-			//	frame.addEventListener(""loadstart"", function(event) {{
-			//		var frameDoc = frame.contentDocument;
-			//		console.log(""/////////////////////////////////  Frame DOMContentLoaded, subscribing to document"" + frameDoc);
-			//		{this}.RaiseDOMContentLoaded();
-			//	}}); 
-			//	console.log(""Added load start"");
+            //	console.log(""Got view"");
 
-
-
-			//	frame.addEventListener(""load"", function(event) {{
-			//		var frameDoc = frame.contentDocument;
-			//		console.log(""/////////////////////////////////  Frame loaded, subscribing to document"" + frameDoc);
-			//		{this}.RaiseDOMContentLoaded();
-			//		//frameDoc.addEventListener(""DOMContentLoaded"", function(event) {{
-			//		//	console.log(""Raising RaiseDOMContentLoaded"");
-			//		//	{this}.RaiseDOMContentLoaded();
-			//		//}});
-			//	}}); 
-
-			//	console.log(""Added load"");
+            //	frame.addEventListener(""loadstart"", function(event) {{
+            //		var frameDoc = frame.contentDocument;
+            //		console.log(""/////////////////////////////////  Frame DOMContentLoaded, subscribing to document"" + frameDoc);
+            //		{this}.RaiseDOMContentLoaded();
+            //	}}); 
+            //	console.log(""Added load start"");
 
 
-			//	");
-		}
 
-		public void RaiseDOMContentLoaded()
+            //	frame.addEventListener(""load"", function(event) {{
+            //		var frameDoc = frame.contentDocument;
+            //		console.log(""/////////////////////////////////  Frame loaded, subscribing to document"" + frameDoc);
+            //		{this}.RaiseDOMContentLoaded();
+            //		//frameDoc.addEventListener(""DOMContentLoaded"", function(event) {{
+            //		//	console.log(""Raising RaiseDOMContentLoaded"");
+            //		//	{this}.RaiseDOMContentLoaded();
+            //		//}});
+            //	}}); 
+
+            //	console.log(""Added load"");
+
+
+            //	");
+        }
+
+        public void RaiseDOMContentLoaded()
 		{
 			if (this.Log().IsEnabled(Microsoft.Extensions.Logging.LogLevel.Debug))
 			{
@@ -359,8 +359,6 @@ namespace Monaco
         }})();";
 
             this.ExecuteJavascript(javascript);
-
-            //Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => NavigationCompleted?.Invoke(this, new WebViewNavigationCompletedEventArgs()));
         }
-	}
+    }
 }
