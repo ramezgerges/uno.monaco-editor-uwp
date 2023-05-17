@@ -54,6 +54,9 @@ namespace Monaco
             InitialiseWebObjects();
 
             _view.Launch();
+
+            Options.Language = CodeLanguage;
+            Options.ReadOnly = ReadOnly;
 #endif
         }
 

@@ -2,13 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>uap10.0.16299;netstandard2.0</TargetFrameworks>
-		<!--<TargetFrameworks>uap10.0.16299;</TargetFrameworks>-->
-		<!--<TargetFrameworks>netstandard2.0;</TargetFrameworks>-->
 		<Title>MonacoEditorComponent</Title>
 		<NoWarn>$(NoWarn);Uno0001</NoWarn>
 		<PackageId>Uno.Monaco.Editor</PackageId>
 		<LangVersion>8.0</LangVersion>
-		<!-- Ensures the .xr.xml files are generated in a proper layout folder --> 
+		<!-- Ensures the .xr.xml files are generated in a proper layout folder -->
 		<GenerateLibraryLayout>true</GenerateLibraryLayout>
 		<NuspecProperties>version=$(PackageVersion);configuration=$(Configuration)</NuspecProperties>
 		<DebugSymbols>true</DebugSymbols>
@@ -21,7 +19,7 @@
 		<RepositoryUrl>https://github.com/unoplatform/uno.monaco-editor-uwp</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/unoplatform/uno.monaco-editor-uwp</PackageProjectUrl>
 		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
-</PropertyGroup>
+	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(IsWindows)' == 'true'">
 		<OutputType>winmdobj</OutputType>
@@ -123,11 +121,12 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<Compile Include="**\*.wasm.cs" /> 
+		<Compile Include="**\*.wasm.cs" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(IsWindows)' == 'true'">
 		<Compile Include="**\*.uwp.cs" />
+		<None Include="**\*.wasm.cs" />
 	</ItemGroup>
 
 	<Target Name="RemoveWinMDPDB" AfterTargets="ExportWindowsMDFile">
