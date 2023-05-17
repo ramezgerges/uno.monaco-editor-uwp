@@ -2,7 +2,7 @@ assembly-versioning-scheme: MajorMinorPatch
 mode: Mainline
 
 branches:
-  master:
+  uno:
     mode: ContinuousDeployment
     regex: ^uno$
     tag: dev
