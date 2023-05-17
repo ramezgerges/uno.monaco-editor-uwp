@@ -3,15 +3,15 @@
 	<metadata>
 		<id>Uno.Monaco.Editor</id>
 		<version>$version$</version>
-		<title>Monaco Editor Component for UWP and WASM</title>
-		<authors>nventive</authors>
-		<owners>nventive</owners>
+		<title>Monaco Editor Component WASM</title>
+		<authors>Uno Platform</authors>
+		<owners>unoplatform</owners>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
 		<projectUrl>https://github.com/unoplatform/uno.monaco-editor-uwp</projectUrl>
 		<description>A Windows Runtime Component and WASM wrapper around the web-based Monaco Editor. Designed for use with the Uno Platform</description>
 		<releaseNotes>Minor fixes, better .NET Native support.</releaseNotes>
-		<copyright>Copyright (C) 2015-2021 nventive inc. - all rights reserved</copyright>
+		<copyright>Copyright (C) 2015-2021 Uno Platform inc. - all rights reserved</copyright>
 		<tags>uwp wasm monaco editor controls</tags>
 		<dependencies>
 			<group targetFramework=".NETStandard2.0">
