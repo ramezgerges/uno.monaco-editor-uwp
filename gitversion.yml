@@ -8,6 +8,7 @@ branches:
     tag: dev
     increment: Minor
     is-source-branch-for: ['beta', 'stable']
+    source-branches: ['master']
 
   pull-request:
     regex: ^(pull|pull\-requests|pr)[/-]
@@ -29,13 +30,6 @@ branches:
     increment: Patch
     source-branches: ['uno','beta']
     is-mainline: true
-
-  dev:
-    mode: ContinuousDeployment
-    regex: ^dev/.*?/(.*?)
-    tag: dev.{BranchName}
-    source-branches: ['uno', 'release', 'projects', 'feature']
-    increment: none
 
   projects:
     tag: proj-{BranchName}
