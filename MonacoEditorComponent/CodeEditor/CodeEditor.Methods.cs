@@ -16,7 +16,7 @@ namespace Monaco
     /// <summary>
     /// Action delegate for <see cref="CodeEditor.AddCommandAsync(int, CommandHandler)"/> and <see cref="CodeEditor.AddCommandAsync(int, CommandHandler, string)"/>.
     /// </summary>
-    public delegate void CommandHandler([ReadOnlyArray] object[] parameters);
+    public delegate void CommandHandler(object[] parameters);
 
     /// <summary>
     /// This file contains Monaco IEditor method implementations we can call on our control.
@@ -167,7 +167,7 @@ namespace Monaco
             return SendScriptAsync<IEnumerable<Marker>>("monaco.editor.getModelMarkers();").AsAsyncOperation();
         }
 
-        public IAsyncAction SetModelMarkersAsync(string owner, [ReadOnlyArray] IMarkerData[] markers)
+        public IAsyncAction SetModelMarkersAsync(string owner, IMarkerData[] markers)
         {
             return SendScriptAsync("monaco.editor.setModelMarkers(model, " + JsonConvert.ToString(owner) + ", " + JsonConvert.SerializeObject(markers) + ");").AsAsyncAction();
         }
@@ -189,7 +189,7 @@ namespace Monaco
         /// </summary>
         /// <param name="newDecorations"></param>
         /// <returns></returns>
-        private IAsyncAction DeltaDecorationsHelperAsync([ReadOnlyArray] IModelDeltaDecoration[] newDecorations)
+        private IAsyncAction DeltaDecorationsHelperAsync(IModelDeltaDecoration[] newDecorations)
         {
             var newDecorationsAdjust = newDecorations ?? Array.Empty<IModelDeltaDecoration>();
             System.Diagnostics.Debug.WriteLine("associating decorations");

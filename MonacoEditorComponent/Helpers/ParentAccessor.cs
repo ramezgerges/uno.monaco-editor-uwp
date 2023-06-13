@@ -77,7 +77,7 @@ namespace Monaco.Helpers
         /// <param name="name">Name of event to call.</param>
         /// <param name="parameters">JSON string Parameters.</param>
         /// <returns></returns>
-        public IAsyncOperation<string> CallEvent(string name, [ReadOnlyArray] string[] parameters)
+        public IAsyncOperation<string> CallEvent(string name, string[] parameters)
         {
             System.Diagnostics.Debug.WriteLine($"Event {name}");
             if (events.ContainsKey(name))
@@ -120,7 +120,7 @@ namespace Monaco.Helpers
         /// <param name="name">String Key.</param>
         /// <param name="parameters">Parameters to be passed to Action.</param>
         /// <returns>True if method was found in registration.</returns>
-        public bool CallActionWithParameters(string name, [ReadOnlyArray] string[] parameters)
+        public bool CallActionWithParameters(string name, string[] parameters)
         {
             if (action_parameters.ContainsKey(name))
             {

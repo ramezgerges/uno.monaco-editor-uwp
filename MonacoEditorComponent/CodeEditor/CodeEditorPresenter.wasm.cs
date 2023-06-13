@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Monaco.Extensions;
 using Uno.Foundation;
 using Uno.Foundation.Interop;
@@ -80,7 +80,7 @@ namespace Monaco
 				this.Log().Debug($"Raising DOMContentLoaded");
 			}
 
-			Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => DOMContentLoaded?.Invoke(null, new WebViewDOMContentLoadedEventArgs()));
+			_ = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => DOMContentLoaded?.Invoke(null, null));
 		}
 
 		/// <inheritdoc />
@@ -160,7 +160,7 @@ namespace Monaco
 		public event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationStartingEventArgs> NavigationStarting;
 
 		/// <inheritdoc />
-		public event TypedEventHandler<ICodeEditorPresenter, WebViewDOMContentLoadedEventArgs> DOMContentLoaded;
+		public event TypedEventHandler<ICodeEditorPresenter, object> DOMContentLoaded;
 
 		/// <inheritdoc />
 		public event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationCompletedEventArgs> NavigationCompleted; // ignored for now (only focus the editor)
@@ -207,7 +207,7 @@ namespace Monaco
 				this.SetHtmlAttribute("src", target);
 
 				//NavigationStarting?.Invoke(this, new WebViewNavigationStartingEventArgs());
-				Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => NavigationStarting?.Invoke(this, new WebViewNavigationStartingEventArgs()));
+				_ = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => NavigationStarting?.Invoke(this, null));
 			}
 		}
 

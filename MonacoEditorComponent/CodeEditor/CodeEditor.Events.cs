@@ -6,9 +6,9 @@ using System.Reflection;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace Monaco
 {
@@ -43,7 +43,7 @@ namespace Monaco
 
         private ThemeListener _themeListener;
 
-        private void WebView_DOMContentLoaded(ICodeEditorPresenter sender, WebViewDOMContentLoadedEventArgs args)
+        private void WebView_DOMContentLoaded(ICodeEditorPresenter sender, object args)
         {
             #if DEBUG
             Debug.WriteLine("DOM Content Loaded");

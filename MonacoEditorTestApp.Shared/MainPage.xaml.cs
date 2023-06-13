@@ -12,9 +12,11 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Text;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -544,9 +546,9 @@ namespace MonacoEditorTestApp
 //using Windows.Storage;
 //using Windows.UI;
 //using Windows.UI.Popups;
-//using Windows.UI.Xaml;
-//using Windows.UI.Xaml.Controls;
-//using Windows.UI.Xaml.Media;
+//using Microsoft.UI.Xaml;
+//using Microsoft.UI.Xaml.Controls;
+//using Microsoft.UI.Xaml.Media;
 
 //// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 

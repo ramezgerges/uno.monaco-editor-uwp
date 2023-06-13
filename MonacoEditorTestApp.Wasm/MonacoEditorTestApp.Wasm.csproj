@@ -44,11 +44,11 @@
 		<!-- Note that for WebAssembly version 1.1.1 of the console logger required -->
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
-		<PackageReference Include="Uno.UI.WebAssembly" Version="4.8.33" />
-		<PackageReference Include="Uno.UI.RemoteControl" Version="4.8.33" Condition="'$(Configuration)'=='Debug'" />
+		<PackageReference Include="Uno.WinUI.WebAssembly" Version="5.0.0-feature.5x.634" />
+		<PackageReference Include="Uno.WinUI.RemoteControl" Version="5.0.0-feature.5x.634" Condition="'$(Configuration)'=='Debug'" />
 		<PackageReference Include="Uno.Wasm.Bootstrap" Version="7.0.24" />
 		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="7.0.24" />
-		<PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\MonacoEditorComponent\MonacoEditorComponent.csproj" />

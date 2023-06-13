@@ -41,7 +41,7 @@ branches:
     tag: feature.{BranchName}
     regex: ^feature/(.*?)
     source-branches: ['uno']
-    increment: none
+    increment: Minor
 
 ignore:
   sha: []
