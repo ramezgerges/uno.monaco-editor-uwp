@@ -98,7 +98,7 @@ var getOptions = function (): monaco.editor.IEditorOptions {
     return {};
 };
 
-var updateOptions = function (opt: monaco.editor.IEditorOptions) {
+var updateMonacoOptions = function (opt: monaco.editor.IEditorOptions) {
     if (opt != null && typeof opt === "object") {
         editor.updateOptions(opt);
     }
