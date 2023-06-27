@@ -13,7 +13,7 @@ jobs:
       packageType: runtime
       version: 5.0.x
 
-  - powershell: .\build\Install-WindowsSdkISO.ps1 18362
+  - powershell: .\build\Install-WindowsSdkISO.ps1 19041
     displayName: Windows SDK Install
 
   - task: MSBuild@1
