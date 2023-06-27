@@ -10,7 +10,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI;
+using Microsoft.UI.Xaml.Markup;
 
 namespace MonacoEditorTestApp.Helpers
 {
