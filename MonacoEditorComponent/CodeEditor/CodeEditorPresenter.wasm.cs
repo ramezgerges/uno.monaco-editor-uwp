@@ -31,9 +31,6 @@ namespace Monaco
 			//Background = new SolidColorBrush(Colors.Red);
 			_handle = JSObjectHandle.Create(this);
 
-            RaiseDOMContentLoaded();
-
-
             //WebAssemblyRuntime.InvokeJSWithInterop($@"
             //	console.log(""///////////////////////////////// subscribing to DOMContentLoaded - "" + {HtmlId});
 
@@ -65,23 +62,6 @@ namespace Monaco
 
             //	");
         }
-
-        public void RaiseDOMContentLoaded()
-		{
-			if (this.Log().IsEnabled(Microsoft.Extensions.Logging.LogLevel.Debug))
-			{
-				this.Log().Debug($"RaiseDOMContentLoaded: Handle is null {_handle == null}");
-			}
-
-			if (_handle == null) return;
-
-			if (this.Log().IsEnabled(Microsoft.Extensions.Logging.LogLevel.Debug))
-			{
-				this.Log().Debug($"Raising DOMContentLoaded");
-			}
-
-			_ = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => DOMContentLoaded?.Invoke(null, null));
-		}
 
 		/// <inheritdoc />
 		public void AddWebAllowedObject(string name, object pObject)
@@ -158,9 +138,6 @@ namespace Monaco
 
 		/// <inheritdoc />
 		public event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationStartingEventArgs> NavigationStarting;
-
-		/// <inheritdoc />
-		public event TypedEventHandler<ICodeEditorPresenter, object> DOMContentLoaded;
 
 		/// <inheritdoc />
 		public event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationCompletedEventArgs> NavigationCompleted; // ignored for now (only focus the editor)

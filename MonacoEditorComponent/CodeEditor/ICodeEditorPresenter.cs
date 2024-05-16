@@ -24,9 +24,6 @@ namespace Monaco
 		/// <summary>Occurs before the WebView navigates to new content.</summary>
 		event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationStartingEventArgs> NavigationStarting;
 
-		/// <summary>Occurs when the WebView has finished parsing the current HTML content.</summary>
-		event TypedEventHandler<ICodeEditorPresenter, object> DOMContentLoaded;
-
 		/// <summary>Occurs when the WebView has finished loading the current content or if navigation has failed.</summary>
 		event TypedEventHandler<ICodeEditorPresenter, WebViewNavigationCompletedEventArgs> NavigationCompleted;
 
@@ -36,7 +33,11 @@ namespace Monaco
 
 		CoreDispatcher Dispatcher { get; }
 
-		IAsyncOperation<string> InvokeScriptAsync(string scriptName, IEnumerable<string> arguments);
+		bool IsLoaded { get; }
+
+        event RoutedEventHandler Loaded;
+
+        IAsyncOperation<string> InvokeScriptAsync(string scriptName, IEnumerable<string> arguments);
 
 		bool Focus(FocusState state);
 
