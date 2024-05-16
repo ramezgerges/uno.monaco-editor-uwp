@@ -102,6 +102,7 @@ namespace Monaco
                 Markers.VectorChanged += Markers_VectorChanged;
 
                 _view.NewWindowRequested += WebView_NewWindowRequested;
+                _view.Loaded += WebView_DOMContentLoaded;
 
                 Debug.WriteLine("Setting initialized - true");
                 _initialized = true;
@@ -121,9 +122,9 @@ namespace Monaco
             if (_view != null)
             {
                 _view.NavigationStarting -= WebView_NavigationStarting;
-                _view.DOMContentLoaded -= WebView_DOMContentLoaded;
                 _view.NavigationCompleted -= WebView_NavigationCompleted;
                 _view.NewWindowRequested -= WebView_NewWindowRequested;
+                _view.Loaded -= WebView_DOMContentLoaded;
                 Debug.WriteLine("Setting initialized - false");
                 _initialized = false;
             }
@@ -149,9 +150,9 @@ namespace Monaco
             if (_view != null)
             {
                 _view.NavigationStarting -= WebView_NavigationStarting;
-                _view.DOMContentLoaded -= WebView_DOMContentLoaded;
                 _view.NavigationCompleted -= WebView_NavigationCompleted;
                 _view.NewWindowRequested -= WebView_NewWindowRequested;
+                _view.Loaded -= WebView_DOMContentLoaded;
                 Debug.WriteLine("Setting initialized - false");
                 _initialized = false;
             }
@@ -161,9 +162,17 @@ namespace Monaco
             if (_view != null)
             {
                 _view.NavigationStarting += WebView_NavigationStarting;
-                _view.DOMContentLoaded += WebView_DOMContentLoaded;
                 _view.NavigationCompleted += WebView_NavigationCompleted;
                 _view.NewWindowRequested += WebView_NewWindowRequested;
+
+                if (_view.IsLoaded)
+                {
+                    WebView_DOMContentLoaded();
+                }
+                else
+                {
+                    _view.Loaded += WebView_DOMContentLoaded;
+                }
 
 #if __WASM__
                 //_view.Source = new System.Uri("ms-appx-web:///Monaco/CodeEditor/CodeEditor.html");

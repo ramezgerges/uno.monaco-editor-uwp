@@ -43,7 +43,10 @@ namespace Monaco
 
         private ThemeListener _themeListener;
 
-        private void WebView_DOMContentLoaded(ICodeEditorPresenter sender, object args)
+        private void WebView_DOMContentLoaded(object sender, RoutedEventArgs args)
+            => WebView_DOMContentLoaded();
+
+        private void WebView_DOMContentLoaded()
         {
             #if DEBUG
             Debug.WriteLine("DOM Content Loaded");
